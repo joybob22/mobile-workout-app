@@ -12,4 +12,13 @@ export class HomePage {
 
   }
 
+  /**
+   * Once we have the login in page create code
+   * that when the login button is pressed the
+   * login page is added to the stack
+   */
+  goToLoginPage(): void {
+
+  }
+
 }

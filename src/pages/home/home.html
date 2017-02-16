@@ -1,18 +1,31 @@
-<ion-header>
-  <ion-navbar>
+<ion-header >
+  <ion-navbar >
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+<ion-content>
+
+  <img src="../../assets/weights.jpg">
+</ion-content>
+<ion-content>
+  <h2 id="homeHeader" style="color: white;">Workout App</h2>
+</ion-content>
+
+
+<ion-content padding class="content" id="mainContentHome">
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
+    This is your new favorite app! Here you will be able to get your workout life organized! Follow these simple steps
+     to get started:)
   </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <button ion-button (click)="goToLogin()">Login</button>
+  <ul>
+    <li>Go to Login page</li>
+    <li>Login or Register</li>
+    <li>Choose a Workout</li>
+    <li>Assign that workout to the day you will complete it</li>
+    <li>Workout!</li>
+    <li>Checkoff that you have completed that workout</li>
+    <li>See your progress!</li>
+  </ul>
+  <button full ion-button (click)="goToLoginPage()">Login</button>
 </ion-content>

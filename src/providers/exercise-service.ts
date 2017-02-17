@@ -17,7 +17,7 @@ export class ExerciseService {
     console.log('Hello ExerciseService Provider');
   }
 
-  ionViewDidLoad() {
+  load() {
     if (this.data) {
       // already loaded data
       return Promise.resolve(this.data);

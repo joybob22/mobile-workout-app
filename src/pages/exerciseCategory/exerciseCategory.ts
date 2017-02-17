@@ -1,26 +1,24 @@
 import { Component } from '@angular/core';
-
-import { ExerciseService } from '../../providers/exercise-service/exercise-service';
+import { NavController } from 'ionic-angular';
+import { ExerciseService } from '../../providers/exercise-service';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
-  providers: [ExerciseService]
+  selector: 'page-exerciseCategory',
+  templateUrl: 'exerciseCategory.html'
 })
 
 
-export class HomePage {
-  public exercise: any;
-
-  constructor(public exerciseService: ExerciseService) {
-    this.loadExerciseCategory();
-  };
-
-
-  loadExerciseCategory() {
+export class ExerciseCategoryPage {
+  exercise = ["1","2"];
+  constructor(private nav: NavController, private exerciseService: ExerciseService){
+  }
+  ionViewDidLoad() {
     this.exerciseService.load()
       .then(data => {
-        this.exercise = data;
+        this.exercise = data.results;
       })
   }
 }
+
+
+

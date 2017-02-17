@@ -6,6 +6,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { ExerciseCategoryPage } from '../pages/exerciseCategory/exerciseCategory';
+import { ExerciseService } from "../providers/exercise-service";
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { LoginPage } from '../pages/login/login';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    ExerciseCategoryPage
 
   ],
   imports: [
@@ -27,8 +30,9 @@ import { LoginPage } from '../pages/login/login';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    ExerciseCategoryPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService ]
 })
 export class AppModule {}

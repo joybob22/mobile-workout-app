@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { ExerciseCategoryPage } from '../pages/exerciseCategory/exerciseCategory';
 import { ExerciseService } from "../providers/exercise-service";
 import { UserDataService } from "../providers/user-data";
+import {RegisterPage} from "../pages/register/register";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserDataService } from "../providers/user-data";
     HomePage,
     TabsPage,
     LoginPage,
-    ExerciseCategoryPage
+    ExerciseCategoryPage,
+    RegisterPage
 
   ],
   imports: [
@@ -32,7 +34,8 @@ import { UserDataService } from "../providers/user-data";
     HomePage,
     TabsPage,
     LoginPage,
-    ExerciseCategoryPage
+    ExerciseCategoryPage,
+    RegisterPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService, UserDataService ]
 })

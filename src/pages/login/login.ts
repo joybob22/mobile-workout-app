@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 
 
+
 @Component ({
   templateUrl: 'login.html'
 
@@ -27,4 +28,9 @@ export class LoginPage {
       }
     }
   }
+  faceBookLogin(){
+    this.userService.faceBookLogin();
+
+  }
 }
+

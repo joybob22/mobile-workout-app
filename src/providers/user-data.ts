@@ -50,4 +50,21 @@ export class UserDataService {
       console.log(errors.message);
     })
   }
+  faceBookLogin(){
+    var provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('user_birthday');
+    provider.setCustomParameters({
+      'display': 'popup'
+    });
+    firebase.auth().signInWithPopup(provider).then((data) => {
+
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      let token: any = data.credential.accessToken;
+      // The signed-in user info.
+      let user: any = data.user;
+      console.log();
+      // ...
+    },
+    (errors) =>(errors.message))
+  }
 }

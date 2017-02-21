@@ -12,7 +12,7 @@ import { ExerciseService } from '../../providers/exercise-service';
 
 export class ExerciseItemPage {
 
-  constructor(private nav: NavController, private exerciseService: ExerciseService){
+  constructor(private navCtrl: NavController, private exerciseService: ExerciseService){
   }
 
   exercise = this.exerciseService.exercise;

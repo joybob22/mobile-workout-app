@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
-<<<<<<< HEAD
 import {LoginPage} from "../login/login";
-=======
-import { LoginPage } from "../login/login";
 import { ExerciseCategoryPage } from "../exerciseCategory/exerciseCategory";
 import { ExerciseService } from "../../providers/exercise-service";
->>>>>>> master
+
 
 @Component({
   selector: 'page-home',

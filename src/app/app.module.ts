@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ExerciseCategoryPage } from '../pages/exerciseCategory/exerciseCategory';
 import { ExerciseService } from "../providers/exercise-service";
+import { UserDataService } from "../providers/user-data";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,6 @@ import { ExerciseService } from "../providers/exercise-service";
     LoginPage,
     ExerciseCategoryPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService ]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService, UserDataService ]
 })
 export class AppModule {}

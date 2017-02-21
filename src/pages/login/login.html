@@ -7,11 +7,11 @@
 <ion-content padding>
   <h2>Login</h2>
 
-    <label>Email: </label><input [(ngModel)]="loginEmail" type="email"/>
-    <label>Password: </label><input [(ngModel)]="loginPassword" (keyup)="loginUser($event, loginEmail, loginPassword)" type="password"/>
+    <input [(ngModel)]="loginEmail" type="email" placeholder="Email"/>
+    <input [(ngModel)]="loginPassword" (keyup)="loginUser($event, loginEmail, loginPassword)" type="password" placeholder="Password"/>
     <input type="submit"/>
 
   <p>OR</p>
-  <button>Login With Facebook</button>
   <p>Don't have an account? <span (click)="goToRegister()" class="link">Register here.</span></p>
+  <button (click)="faceBookLogin()"> Login With Facebook</button>
 </ion-content>

@@ -33,4 +33,8 @@ export class LoginPage {
   goToRegister(): void {
     this.nav.push(RegisterPage);
   }
+  faceBookLogin(){
+    this.userService.faceBookLogin();
+
+  }
 }

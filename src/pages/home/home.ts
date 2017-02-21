@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
-import { LoginPage } from "../login/login";
+import {LoginPage} from "../login/login";
 import { ExerciseCategoryPage } from "../exerciseCategory/exerciseCategory";
 import { ExerciseService } from "../../providers/exercise-service";
+
 
 @Component({
   selector: 'page-home',

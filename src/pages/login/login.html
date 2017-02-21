@@ -6,11 +6,11 @@
 
 <ion-content padding>
   <h2>Login</h2>
-  <form>
-    <label>Email: </label><input type="email"/>
-    <label>Password: </label><input type="password"/>
+
+    <label>Email: </label><input [(ngModel)]="loginEmail" type="email"/>
+    <label>Password: </label><input [(ngModel)]="loginPassword" (keyup)="loginUser($event, loginEmail, loginPassword)" type="password"/>
     <input type="submit"/>
-  </form>
+
   <p>OR</p>
   <button>Login With Facebook</button>
 </ion-content>

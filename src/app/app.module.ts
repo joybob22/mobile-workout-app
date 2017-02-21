@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { ExerciseCategoryPage } from '../pages/exerciseCategory/exerciseCategory';
 import { ExerciseService } from "../providers/exercise-service";
 import {ExerciseItemPage} from "../pages/exercises/exercises";
+import { UserDataService } from "../providers/user-data";
 
 @NgModule({
   declarations: [

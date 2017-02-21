@@ -14,8 +14,13 @@ export class ExerciseDetailModal {
     return [ViewController];
   }
 
-  constructor(private navCtrl: NavController, private exerciseService: ExerciseService){
+  constructor(private navCtrl: NavController, private exerciseService: ExerciseService, viewCtrl: ViewController){
 
+    this.viewCtrl = viewCtrl;
+  }
+
+  dismiss(data) {
+    this.viewCtrl.dismiss();
   }
 
 }

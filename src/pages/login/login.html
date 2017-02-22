@@ -13,4 +13,8 @@
   <p>OR</p>
   <p>Don't have an account? <span (click)="goToRegister()" class="link">Register here.</span></p>
   <button (click)="faceBookLogin()"> Login With Facebook</button>
+
+  <div *ngIf="errorsBool">
+    <p style="color: white; font-weight: bold;">**{{errorMessage}}</p>
+  </div>
 </ion-content>

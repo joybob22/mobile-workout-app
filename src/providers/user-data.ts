@@ -22,6 +22,8 @@ export class UserDataService {
     messagingSenderId: "384184019598"
   });
 
+  error = null;
+
   constructor(){}
 
   /**
@@ -31,40 +33,33 @@ export class UserDataService {
    * @param email
    * @param password
    */
-  registerUser(email, password): void {
-    firebase.auth().createUserWithEmailAndPassword(email, password).then((data) => {
-      //success function
-
-      console.log("A user with this ID was added. " + data.uid);
-    }, (errors) => {
-      //error function
-      console.log(errors.message);
-    });
+  registerUser(email, password): any{
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
-  loginUser(email, password): void {
-    firebase.auth().signInWithEmailAndPassword(email, password).then((data) => {
-      //User sign in successful
-      console.log("Login Successful: " + data.uid);
-    }, (errors) => {
-      console.log(errors.message);
-    })
+  loginUser(email, password): any {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
   }
-  faceBookLogin(){
+  faceBookLogin(): any{
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('user_birthday');
     provider.setCustomParameters({
       'display': 'popup'
     });
-    firebase.auth().signInWithPopup(provider).then((data) => {
+    return firebase.auth().signInWithPopup(provider).then((data) => {
 
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       let token: any = data.credential.accessToken;
       // The signed-in user info.
       let user: any = data.user;
-      console.log();
+      console.log(user);
       // ...
+      return true;
     },
-    (errors) =>(errors.message))
+    (errors) =>{
+      console.log(errors.message);
+      this.error = errors.message;
+      return false;
+    })
   }
 }

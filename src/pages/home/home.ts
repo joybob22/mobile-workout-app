@@ -13,15 +13,15 @@ import { ExerciseService } from "../../providers/exercise-service";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(private navCtrl: NavController) { }
 
   /**
-   * Once we have the login in page create code
+   * Once we have the login page create code
    * that when the login button is pressed the
    * login page is added to the stack
    */
   goToLoginPage(): void {
-    this.navCtrl.push(LoginPage)
+    this.navCtrl.push(LoginPage);
   }
 
   // can remove when button on homepage is removed

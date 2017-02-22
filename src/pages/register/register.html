@@ -10,4 +10,7 @@
   <input type="password" class="input" [(ngModel)]="registerPassword" placeholder="Password">
   <input type="password" class="input" [(ngModel)]="registerConfirmPassword" placeholder="Confirm Password">
   <button full ion-button id="registerButton" (click)="registerUser()">Register Account</button>
+  <div *ngIf="errors">
+    <p style="color: white; font-weight: bold;">**{{errorMessage}}</p>
+  </div>
 </ion-content>

@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
 
@@ -10,15 +10,22 @@ import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
 })
 
 export class ExerciseItemPage {
+  private exercise: any;
 
-  constructor(private navCtrl: NavController, private exerciseService: ExerciseService){
+  constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private navParams: NavParams){
+
   }
-  exercise = this.exerciseService.exercise;
 
-  openDetail(id: number){
+
+  openDetail(id: number, index: number){
     this.navCtrl.push(ExerciseDetailModal, {
-      id : id
+      exerciseDetail: this.exercise[index]
     });
+   }
+
+   ionViewDidLoad(){
+     this.exerciseService.getExercises(this.navParams.get('id')).then(()=>
+     this.exercise = this.exerciseService.exercise);
    }
 }
 

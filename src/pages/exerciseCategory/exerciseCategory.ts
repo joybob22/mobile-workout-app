@@ -19,10 +19,9 @@ export class ExerciseCategoryPage {
         this.category = data.results;
       })
   }
-  showExercises(id: number){
+  showExercises(id: number, index: number){
 
-    this.exerciseService.getExercises(id);
-    this.navCtrl.push(ExerciseItemPage);
+    this.navCtrl.push(ExerciseItemPage,{id: id, index: index});
 
   }
 }

@@ -10,6 +10,8 @@ import { ExerciseCategoryPage } from '../pages/exerciseCategory/exerciseCategory
 import { ExerciseService } from "../providers/exercise-service";
 import { UserDataService } from "../providers/user-data";
 import {RegisterPage} from "../pages/register/register";
+import {ExerciseItemPage} from "../pages/exercises/exercises";
+
 
 @NgModule({
   declarations: [
@@ -20,8 +22,8 @@ import {RegisterPage} from "../pages/register/register";
     TabsPage,
     LoginPage,
     ExerciseCategoryPage,
+    ExerciseItemPage,
     RegisterPage
-
   ],
   imports: [
     IonicModule.forRoot(MyApp)

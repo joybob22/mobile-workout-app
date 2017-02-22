@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ExerciseService {
   public data: any;
+  public exercise: any;
 
   constructor(public http: Http) {
     console.log('Hello ExerciseService Provider');
@@ -37,6 +38,25 @@ export class ExerciseService {
           resolve(this.data);
         });
     });
+  }
+
+  getExercises(id: number){
+
+
+    return new Promise(resolve => {
+      // We're using Angular HTTP provider to request the data,
+      // then on the response, it'll map the JSON data to a parsed JS object.
+      // Next, we process the data and resolve the promise with the new data.
+      this.http.get('http://wger.de/api/v2/exercise/?language=2&muscles='+id)
+        .map(res => res.json())
+        .subscribe(exercise => {
+          // we've got back the raw data, now generate the core schedule data
+          // and save the data for later reference
+          this.exercise = exercise.results;
+          resolve(this.exercise);
+        });
+    });
+
   }
 
 }

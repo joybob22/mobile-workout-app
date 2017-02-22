@@ -4,12 +4,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>Select a Category of Exercise</ion-content>
-
 <ion-content class="exerciseCategory">
   <ion-list>
-    <ion-item *ngFor="let category of exercise">
-      <h2>{{  category.name }}</h2>
+    <ion-item *ngFor="let category of category">
+      <h2 (click)="showExercises(category.id)">{{  category.name }}</h2>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,4 +1,4 @@
-import {ViewController} from 'ionic-angular';
+import {ViewController, NavParams} from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import {Component} from "@angular/core";
@@ -9,18 +9,21 @@ import {Component} from "@angular/core";
 })
 
 export class ExerciseDetailModal {
+  exerciseDetail: any;
 
-  static get parameters() {
-    return [ViewController];
-  }
+  // static get parameters() {
+  //   return [ViewController];
+  // }
 
-  constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private viewCtrl: ViewController){
+  constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private viewCtrl: ViewController, private navParams: NavParams){
 
     this.viewCtrl = viewCtrl;
+    console.log(this.exerciseDetail);
+    this.exerciseDetail = this.navParams.get('exerciseDetail')
   }
 
-  dismiss(data) {
-    this.viewCtrl.dismiss();
+  ionViewDidLoad(){
+    this.exerciseDetail = this.navParams.get('exerciseDetail')
   }
 
 }

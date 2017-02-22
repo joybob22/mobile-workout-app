@@ -7,8 +7,8 @@
 
 <ion-content class="exercises">
   <ion-list>
-    <ion-item *ngFor="let exerciseInfo of exercise">
-      <h2 (click)="openDetail(exerciseInfo.id)">{{  exerciseInfo.name }}</h2>
+    <ion-item *ngFor="let exerciseInfo of exercise; let i=index">
+      <h2 (click)="openDetail(exerciseInfo.id, i)">{{  exerciseInfo.name }}</h2>
     </ion-item>
   </ion-list>
 </ion-content>

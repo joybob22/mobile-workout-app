@@ -1,11 +1,13 @@
-<ion-navbar *navbar>
-  <ion-buttons start>
-    <button (click)="dismiss()">
-      Back
-    </button>
-  </ion-buttons>
-  <ion-title>Detail</ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ exerciseDetail.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content padding class="exerciseDetail">
-  Exercise Detail stuff
+  {{ exerciseDetail.description }}
 </ion-content>
+
+
+
+

@@ -11,6 +11,7 @@ import { ExerciseService } from "../providers/exercise-service";
 import { UserDataService } from "../providers/user-data";
 import {RegisterPage} from "../pages/register/register";
 import {ExerciseItemPage} from "../pages/exercises/exercises";
+import {ExerciseDetailModal} from "../pages/exerciseDetail/exerciseDetail";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {ExerciseItemPage} from "../pages/exercises/exercises";
     LoginPage,
     ExerciseCategoryPage,
     ExerciseItemPage,
+    ExerciseDetailModal,
     RegisterPage
   ],
   imports: [
@@ -37,6 +39,8 @@ import {ExerciseItemPage} from "../pages/exercises/exercises";
     TabsPage,
     LoginPage,
     ExerciseCategoryPage,
+    ExerciseItemPage,
+    ExerciseDetailModal,
     RegisterPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService, UserDataService ]

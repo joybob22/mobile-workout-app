@@ -1,4 +1,6 @@
 import {ViewController} from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { ExerciseService } from '../../providers/exercise-service';
 import {Component} from "@angular/core";
 
 @Component({
@@ -12,7 +14,8 @@ export class ExerciseDetailModal {
     return [ViewController];
   }
 
-  constructor(viewCtrl: ViewController) {
+  constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private viewCtrl: ViewController){
+
     this.viewCtrl = viewCtrl;
   }
 

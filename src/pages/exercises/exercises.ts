@@ -1,9 +1,8 @@
-/**
- * Created by kendratate on 2/17/17.
- */import { Component } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
-import {ExerciseDetailModal} from "../exerciseDetail/exerciseDetail";
+import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
 
 @Component({
   selector: 'page-exerciseItem',

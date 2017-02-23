@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, ToastController} from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 import {ExerciseCategoryPage} from "../exerciseCategory/exerciseCategory";
 
@@ -16,7 +16,7 @@ export class RegisterPage {
   errors: boolean = false;
   errorMessage: string;
 
-  constructor(private nav: NavController, private userService: UserDataService) {
+  constructor(private nav: NavController, private userService: UserDataService, private toastController: ToastController) {
   }
 
   registerUser(): void {
@@ -35,11 +35,30 @@ export class RegisterPage {
                   //success function
                   console.log("A user with this ID was added. " + data.uid);
                   this.nav.push(ExerciseCategoryPage);
+                  let toast = this.toastController.create({
+                    duration: 3000,
+                    message: "Registration Successfull!",
+                    position: "bottom"
+                  });
+
+                  toast.present();
+                  this.errors = false;
+                  this.registerPassword = "";
+                  this.registerConfirmPassword = "";
                 }, (errors) => {
                   //error function
                   console.log(errors.message);
                   this.errors = true;
                   this.errorMessage = errors.message;
+                  let toast = this.toastController.create({
+                    duration: 3000,
+                    message: "Registration Failed",
+                    position: "bottom"
+                  });
+
+                  toast.present();
+                  this.registerPassword = "";
+                  this.registerConfirmPassword = "";
                 });
               } else {
                 this.errors = true;

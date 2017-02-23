@@ -46,20 +46,6 @@ export class UserDataService {
     provider.setCustomParameters({
       'display': 'popup'
     });
-    return firebase.auth().signInWithPopup(provider).then((data) => {
-
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      let token: any = data.credential.accessToken;
-      // The signed-in user info.
-      let user: any = data.user;
-      console.log(user);
-      // ...
-      return true;
-    },
-    (errors) =>{
-      console.log(errors.message);
-      this.error = errors.message;
-      return false;
-    })
+    return firebase.auth().signInWithPopup(provider);
   }
 }

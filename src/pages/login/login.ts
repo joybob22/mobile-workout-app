@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {NavController, ToastController} from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 import {RegisterPage} from "../register/register";
-import {ExerciseCategoryPage} from "../exerciseCategory/exerciseCategory";
+import {OverviewPage} from "../overview/overview";
 
 
 @Component ({
@@ -32,7 +32,7 @@ export class LoginPage {
               this.userService.loginUser(email, password).then((data) => {
                 //User sign in successful
                 console.log("Login Successful: " + data.uid);
-                this.nav.push(ExerciseCategoryPage);
+                this.nav.push(OverviewPage);
                 let toast = this.toastController.create({
                   duration: 3000,
                   message: "Login Successfull!",
@@ -80,7 +80,20 @@ export class LoginPage {
     this.nav.push(RegisterPage);
   }
   faceBookLogin(){
-    this.userService.faceBookLogin();
+    this.userService.faceBookLogin().then((data) => {
+
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        let token: any = data.credential.accessToken;
+        // The signed-in user info.
+        let user: any = data.user;
+        console.log(user);
+        // ...
+        this.nav.push(OverviewPage);
+      },
+      (errors) =>{
+        console.log(errors.message);
+        return false;
+      });
 
   }
 }

@@ -9,7 +9,7 @@
 
     <input [(ngModel)]="loginEmail" type="email" placeholder="Email"/>
     <input [(ngModel)]="loginPassword" (keyup)="loginUser($event, loginEmail, loginPassword)" type="password" placeholder="Password"/>
-    <input type="submit"/>
+    <input style="b" type="submit"/>
 
   <p>OR</p>
   <p>Don't have an account? <span (click)="goToRegister()" class="link">Register here.</span></p>

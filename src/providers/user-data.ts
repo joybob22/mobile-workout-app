@@ -62,9 +62,9 @@ export class UserDataService {
       let token: any = data.credential.accessToken;
       // The signed-in user info.
       let user: any = data.user;
-      console.log();
+      console.log(user);
       // ...
     },
-    (errors) =>(errors.message))
+    (errors) =>(console.log(errors.message)))
   }
 }

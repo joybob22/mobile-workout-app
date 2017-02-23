@@ -1,8 +1,9 @@
 
 import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
+
 
 @Component({
   selector: 'page-exerciseItem',
@@ -27,5 +28,9 @@ export class ExerciseItemPage {
      this.exerciseService.getExercises(this.navParams.get('id')).then(()=>
      this.exercise = this.exerciseService.exercise);
    }
+
+  scheduleWorkout(){
+    //display calendar and save workout
+  }
 }
 

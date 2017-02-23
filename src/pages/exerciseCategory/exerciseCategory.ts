@@ -11,6 +11,15 @@ import { ExerciseItemPage } from "../exercises/exercises";
 
 export class ExerciseCategoryPage {
   category = ["failed","to connect"];
+  workoutMap = {
+    Abs: 14,
+    Arms: 9,
+    Back: 12,
+    Calves: 7,
+    Legs: 10,
+    Chest: 4,
+    Shoulders: 2
+  };
   constructor(private navCtrl: NavController, private exerciseService: ExerciseService){
   }
   ionViewDidLoad() {
@@ -23,6 +32,10 @@ export class ExerciseCategoryPage {
 
     this.navCtrl.push(ExerciseItemPage,{id: id, index: index});
 
+  }
+
+  getWorkoutId(name): number {
+    return this.workoutMap[name];
   }
 }
 

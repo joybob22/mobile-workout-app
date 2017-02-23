@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Category</ion-title>
+    <ion-title tabIcon="body">Category</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="exerciseCategory">
   <ion-list>
-    <ion-item *ngFor="let category of category">
+    <ion-item detail-push *ngFor="let category of category">
       <h2 (click)="showExercises(category.id, index)">{{  category.name }}</h2>
     </ion-item>
   </ion-list>

@@ -18,11 +18,11 @@ export class LoginPage {
 
   constructor(private nav: NavController, private userService: UserDataService, private toastController: ToastController){}
 
-  loginUser(key: any, email: string, password: string) {
+  loginUser(key: any, email: string, password: string, clicked: boolean) {
 
     let re: any = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     //if keypress is the enter key
-    if(key.keyCode == 13) {
+    if(key.keyCode == 13 || clicked) {
       if(email) {
         if(password) {
           //if password is at least 6 characters long

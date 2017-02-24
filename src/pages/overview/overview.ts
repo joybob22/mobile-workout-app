@@ -12,7 +12,11 @@ import {UserDataService} from "../../providers/user-data";
 })
 export class OverviewPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userDataService: UserDataService) {}
+  userWorkout: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userDataService: UserDataService) {
+    this.userWorkout = userDataService.userWorkout;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OverviewPage');

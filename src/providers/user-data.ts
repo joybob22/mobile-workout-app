@@ -24,25 +24,52 @@ export class UserDataService {
 
   userWorkout = [
     {
-      amount: 40,
-      days: ["monday", "wednesday", "friday"],
-      name: "Push ups"
+      date: "Monday",
+      workouts: [{
+          name: "push-ups",
+          amount: 50,
+          completed: false
+        },
+        {
+          name: "sit-ups",
+          amount: 30,
+          completed: false
+        }
+      ],
+
+      workoutCompleted: false
+
     },
     {
-      amount: 100,
-      days: ["tuesday", "thursday", "saturday"],
-      name: "Sit ups"
+      date: "Tuesday",
+      workouts: [{
+        name: "push-ups",
+        amount: 60,
+        completed: false
+      }],
+      workoutCompleted: false
+
     },
     {
-      amount: 20,
-      days: ["monday", "friday"],
-      name: "Pull ups"
+      date: "Wednesday",
+      workouts: [{
+        name: "bicycle crunches",
+        amount: 120,
+        completed: false
+      }],
+      workoutCompleted: false
+
     },
     {
-      amount: 30,
-      days: ["monday", "wednesday", "friday"],
-      name: "Jumping Jacks"
-    }
+      date: "Friday",
+      workouts: [{
+        name: "push-ups",
+        amount: 60,
+        completed: false
+      }],
+      workoutCompleted: false
+
+    },
   ];
 
   error = null;

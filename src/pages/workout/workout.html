@@ -7,14 +7,13 @@
 
 <ion-content class="workout">
   <ion-list>
-    <ion-item *ngFor="let exercise of workout; let i=index">
+    <ion-item *ngFor="let exercise of selectedExercises; let i=index">
       <ion-item>
         <ion-label>{{  exercise.name }}</ion-label>
-        <ion-input type="number" placeholder="Number of Reps"></ion-input>
+        <ion-input type="number" placeholder="# of Reps"></ion-input>
       </ion-item>
     </ion-item>
   </ion-list>
-
 </ion-content>
 
 <ion-footer>

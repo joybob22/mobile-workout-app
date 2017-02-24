@@ -44,7 +44,7 @@ export class ExerciseItemPage {
       if(this.exercise[i].isSelected) {
         this.selectedExercises.push({
           //add anything else that needs to be stored
-          name: this.exercise.name
+          name: this.exercise[i].name
         })
       }
     }

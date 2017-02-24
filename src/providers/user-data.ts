@@ -22,6 +22,29 @@ export class UserDataService {
     messagingSenderId: "384184019598"
   });
 
+  userWorkout = [
+    {
+      amount: 40,
+      days: ["monday", "wednesday", "friday"],
+      name: "Push ups"
+    },
+    {
+      amount: 100,
+      days: ["tuesday", "thursday", "saturday"],
+      name: "Sit ups"
+    },
+    {
+      amount: 20,
+      days: ["monday", "friday"],
+      name: "Pull ups"
+    },
+    {
+      amount: 30,
+      days: ["monday", "wednesday", "friday"],
+      name: "Jumping Jacks"
+    }
+  ];
+
   error = null;
 
   constructor(){}

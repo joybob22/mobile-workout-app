@@ -7,12 +7,22 @@
 
 </ion-header>
 
-
 <ion-content padding>
 
   <div>
     <button ion-button (click)="goToExerciseCategory()">Create a Workout</button>
     <button ion-button (click)="goToCheckProgress()">Check Progress</button>
   </div>
+
+  <div *ngFor="let workout of userWorkout" class="workoutDayBubble">
+    {{ workout.date }}
+    <div *ngFor="let type of workout.workouts" class="workoutDetailBubble">
+     {{type.amount}} {{type.name}}
+    </div>
+
+
+  </div>
+
+
 
 </ion-content>

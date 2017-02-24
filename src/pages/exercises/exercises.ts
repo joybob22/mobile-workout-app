@@ -12,6 +12,7 @@ import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
 
 export class ExerciseItemPage {
   private exercise: any;
+  selectedExercises: any;
 
   constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private navParams: NavParams){
 
@@ -25,12 +26,36 @@ export class ExerciseItemPage {
    }
 
    ionViewDidLoad(){
-     this.exerciseService.getExercises(this.navParams.get('id')).then(()=>
-     this.exercise = this.exerciseService.exercise);
+     this.exerciseService.getExercises(this.navParams.get('id')).then(()=> {
+       this.exercise = this.exerciseService.exercise;
+     });
+
    }
 
   scheduleWorkout(){
-    //display calendar and save workout
+    this.updateSelectedExercises();
+    /**
+     * display calendar and save workout
+     *
+     * Pass in selectedExercises into the navParams
+     */
+
+
+  }
+
+  updateSelectedExercises(): any {
+    this.selectedExercises = [];
+    for(var i = 0; i < this.exercise.length; i++) {
+      if(this.exercise[i].isSelected) {
+        this.selectedExercises.push({
+          //add anything else that needs to be stored
+          name: this.exercise.name
+        })
+      }
+    }
   }
 }
+
+
+
 

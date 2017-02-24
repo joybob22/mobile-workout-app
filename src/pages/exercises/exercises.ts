@@ -34,8 +34,8 @@ export class ExerciseItemPage {
 
   editWorkout(){
     //display workout and choose reps and save workout
-    this.navCtrl.push(ExerciseItemPage
-    this.navCtrl.push(WorkoutPage);
+    this.updateSelectedExercises();
+    this.navCtrl.push(WorkoutPage, {selectedExercises: this.selectedExercises});
   }
 
   updateSelectedExercises(): any {

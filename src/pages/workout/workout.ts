@@ -11,9 +11,10 @@ import { UserDataService } from '../../providers/user-data';
 
 export class WorkoutPage{
   private workout: any;
+  selectedExercises: any;
 
   constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private navParams: NavParams, private userDataService: UserDataService){
-
+    this.selectedExercises = navParams.get('selectedExercises');
   }
 
 

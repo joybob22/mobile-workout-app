@@ -15,6 +15,8 @@ import {ExerciseDetailModal} from "../pages/exerciseDetail/exerciseDetail";
 import { WorkoutPage } from "../pages/workout/workout";
 import {OverviewPage} from "../pages/overview/overview";
 import {ProgressPage} from "../pages/progress/progress";
+import {OverviewPage} from "../pages/overview/overview";
+import {ProgressPage} from "../pages/progress/progress";
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import {ProgressPage} from "../pages/progress/progress";
     RegisterPage,
     OverviewPage,
     ProgressPage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -50,7 +53,6 @@ import {ProgressPage} from "../pages/progress/progress";
     ExerciseDetailModal,
     RegisterPage,
     WorkoutPage,
-    RegisterPage,
     OverviewPage,
     ProgressPage
   ],

@@ -7,7 +7,7 @@
 <ion-content class="exerciseCategory">
   <ion-list>
     <ion-item detail-push *ngFor="let category of category">
-      <h2 (click)="showExercises(category.id, index)">{{  category.name }}</h2>
+      <h2 (click)="showExercises(getWorkoutId(category.name), index)">{{  category.name }}</h2>
     </ion-item>
   </ion-list>
 </ion-content>

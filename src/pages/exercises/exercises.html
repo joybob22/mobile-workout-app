@@ -10,7 +10,7 @@
     <ion-item-sliding *ngFor="let exerciseInfo of exercise; let i=index">
       <ion-item>
         <ion-label>{{  exerciseInfo.name }}</ion-label>
-        <ion-checkbox red item-right></ion-checkbox>
+        <ion-checkbox red item-right [(ngModel)]="exerciseInfo.isSelected"></ion-checkbox>
       </ion-item>
 
       <ion-item-options side="left">

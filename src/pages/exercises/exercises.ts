@@ -34,6 +34,7 @@ export class ExerciseItemPage {
 
   editWorkout(){
     //display workout and choose reps and save workout
+    this.navCtrl.push(ExerciseItemPage
     this.navCtrl.push(WorkoutPage);
   }
 
@@ -49,7 +50,4 @@ export class ExerciseItemPage {
     }
   }
 }
-
-
-
 

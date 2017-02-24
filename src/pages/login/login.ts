@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {NavController, ToastController} from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 import {RegisterPage} from "../register/register";
-import {ExerciseCategoryPage} from "../exerciseCategory/exerciseCategory";
+import {OverviewPage} from "../overview/overview";
 
 
 @Component ({
@@ -18,11 +18,11 @@ export class LoginPage {
 
   constructor(private nav: NavController, private userService: UserDataService, private toastController: ToastController){}
 
-  loginUser(key: any, email: string, password: string) {
+  loginUser(key: any, email: string, password: string, clicked: boolean) {
 
     let re: any = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     //if keypress is the enter key
-    if(key.keyCode == 13) {
+    if(key.keyCode == 13 || clicked) {
       if(email) {
         if(password) {
           //if password is at least 6 characters long
@@ -32,7 +32,7 @@ export class LoginPage {
               this.userService.loginUser(email, password).then((data) => {
                 //User sign in successful
                 console.log("Login Successful: " + data.uid);
-                this.nav.push(ExerciseCategoryPage);
+                this.nav.push(OverviewPage);
                 let toast = this.toastController.create({
                   duration: 3000,
                   message: "Login Successfull!",
@@ -80,7 +80,20 @@ export class LoginPage {
     this.nav.push(RegisterPage);
   }
   faceBookLogin(){
-    this.userService.faceBookLogin();
+    this.userService.faceBookLogin().then((data) => {
+
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        let token: any = data.credential.accessToken;
+        // The signed-in user info.
+        let user: any = data.user;
+        console.log(user);
+        // ...
+        this.nav.push(OverviewPage);
+      },
+      (errors) =>{
+        console.log(errors.message);
+        return false;
+      });
 
   }
 }

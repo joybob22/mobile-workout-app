@@ -22,6 +22,29 @@ export class UserDataService {
     messagingSenderId: "384184019598"
   });
 
+  userWorkout = [
+    {
+      amount: 40,
+      days: ["monday", "wednesday", "friday"],
+      name: "Push ups"
+    },
+    {
+      amount: 100,
+      days: ["tuesday", "thursday", "saturday"],
+      name: "Sit ups"
+    },
+    {
+      amount: 20,
+      days: ["monday", "friday"],
+      name: "Pull ups"
+    },
+    {
+      amount: 30,
+      days: ["monday", "wednesday", "friday"],
+      name: "Jumping Jacks"
+    }
+  ];
+
   error = null;
 
   constructor(){}
@@ -46,20 +69,6 @@ export class UserDataService {
     provider.setCustomParameters({
       'display': 'popup'
     });
-    return firebase.auth().signInWithPopup(provider).then((data) => {
-
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      let token: any = data.credential.accessToken;
-      // The signed-in user info.
-      let user: any = data.user;
-      console.log(user);
-      // ...
-      return true;
-    },
-    (errors) =>{
-      console.log(errors.message);
-      this.error = errors.message;
-      return false;
-    })
+    return firebase.auth().signInWithPopup(provider);
   }
 }

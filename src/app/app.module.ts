@@ -12,6 +12,9 @@ import { UserDataService } from "../providers/user-data";
 import {RegisterPage} from "../pages/register/register";
 import {ExerciseItemPage} from "../pages/exercises/exercises";
 import {ExerciseDetailModal} from "../pages/exerciseDetail/exerciseDetail";
+import { WorkoutPage } from "../pages/workout/workout";
+import {OverviewPage} from "../pages/overview/overview";
+import {ProgressPage} from "../pages/progress/progress";
 
 
 @NgModule({
@@ -25,7 +28,11 @@ import {ExerciseDetailModal} from "../pages/exerciseDetail/exerciseDetail";
     ExerciseCategoryPage,
     ExerciseItemPage,
     ExerciseDetailModal,
-    RegisterPage
+    RegisterPage,
+    WorkoutPage,
+    RegisterPage,
+    OverviewPage,
+    ProgressPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -41,7 +48,11 @@ import {ExerciseDetailModal} from "../pages/exerciseDetail/exerciseDetail";
     ExerciseCategoryPage,
     ExerciseItemPage,
     ExerciseDetailModal,
-    RegisterPage
+    RegisterPage,
+    WorkoutPage,
+    RegisterPage,
+    OverviewPage,
+    ProgressPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService, UserDataService ]
 })

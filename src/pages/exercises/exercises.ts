@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
-
+import { WorkoutPage } from "../workout/workout";
 
 @Component({
   selector: 'page-exerciseItem',
@@ -12,6 +12,7 @@ import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
 
 export class ExerciseItemPage {
   private exercise: any;
+  selectedExercises: any;
 
   constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private navParams: NavParams){
 
@@ -25,12 +26,30 @@ export class ExerciseItemPage {
    }
 
    ionViewDidLoad(){
-     this.exerciseService.getExercises(this.navParams.get('id')).then(()=>
-     this.exercise = this.exerciseService.exercise);
+     this.exerciseService.getExercises(this.navParams.get('id')).then(()=> {
+       this.exercise = this.exerciseService.exercise;
+     });
+
    }
 
-  scheduleWorkout(){
-    //display calendar and save workout
+  editWorkout(){
+    //display workout and choose reps and save workout
+    this.navCtrl.push(WorkoutPage);
+  }
+
+  updateSelectedExercises(): any {
+    this.selectedExercises = [];
+    for(var i = 0; i < this.exercise.length; i++) {
+      if(this.exercise[i].isSelected) {
+        this.selectedExercises.push({
+          //add anything else that needs to be stored
+          name: this.exercise.name
+        })
+      }
+    }
   }
 }
+
+
+
 

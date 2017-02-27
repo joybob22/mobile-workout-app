@@ -14,9 +14,9 @@
     <button ion-button (click)="goToCheckProgress()">Check Progress</button>
   </div>
 
-  <div *ngFor="let workout of userWorkout" class="workoutDayBubble">
-    {{ workout.date }}
-    <div *ngFor="let type of workout.workouts" class="workoutDetailBubble">
+  <div *ngFor="let workout of userWorkout; let i=index " class="workoutDayBubble" >
+    <input type="checkbox" [(ngModel)]="workout.workoutCompleted"/> {{ workout.date }}
+    <div (click)="goToDayDetail(i)" *ngFor="let type of workout.workouts" class="workoutDetailBubble">
      {{type.amount}} {{type.name}}
     </div>
 

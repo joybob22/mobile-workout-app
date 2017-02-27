@@ -7,12 +7,11 @@
 
 <ion-content class="workout">
   <ion-list>
-    <ion-item *ngFor="let exercise of selectedExercises; let i=index">
-      <ion-item>
-        <ion-label>{{  exercise.name }}</ion-label>
-        <ion-input type="number" placeholder="# of Reps"></ion-input>
-      </ion-item>
-    </ion-item>
+    <ion-item *ngFor='let exercise of selectedExercises; let i=index'>
+      <ion-label color="primary" floating>{{exercise.name}}</ion-label>
+      <ion-input type="number" [(ngModel)]="selectedExercises[i].amount"></ion-input>
+
+  </ion-item>
   </ion-list>
 </ion-content>
 
@@ -21,6 +20,7 @@
   <button ion-button icon-left full round (tap)="scheduleWorkout()">
     <ion-icon name="calendar"></ion-icon>
     Schedule
+
   </button>
 
 </ion-footer>

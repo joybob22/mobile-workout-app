@@ -10,7 +10,7 @@
   <input [(ngModel)]="loginEmail" class="input" type="email" placeholder="Email"/>
   <input [(ngModel)]="loginPassword" class="input" (keyup)="loginUser($event, loginEmail, loginPassword, false)" type="password" placeholder="Password"/>
   <button ion-button full (click)="loginUser($event, loginEmail, loginPassword, true)">Login</button>
-  <p>OR</p>
+  <p style="text-align: center;">OR</p>
   <button ion-button full (click)="faceBookLogin()"> Login With Facebook</button>
   <p>Don't have an account? <span (click)="goToRegister()" class="link">Register here.</span></p>
 

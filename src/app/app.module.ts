@@ -15,8 +15,6 @@ import {ExerciseDetailModal} from "../pages/exerciseDetail/exerciseDetail";
 import { WorkoutPage } from "../pages/workout/workout";
 import {OverviewPage} from "../pages/overview/overview";
 import {ProgressPage} from "../pages/progress/progress";
-import {OverviewPage} from "../pages/overview/overview";
-import {ProgressPage} from "../pages/progress/progress";
 
 
 @NgModule({

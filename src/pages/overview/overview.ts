@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {ExerciseCategoryPage} from "../exerciseCategory/exerciseCategory";
 import {ProgressPage} from "../progress/progress";
 import {UserDataService} from "../../providers/user-data";
+import {DayDetailPage} from "../day-detail/day-detail";
 
 
 
@@ -28,5 +29,9 @@ export class OverviewPage {
 
   goToCheckProgress(): void {
     this.navCtrl.push(ProgressPage);
+  }
+
+  goToDayDetail(index): void {
+    this.navCtrl.push(DayDetailPage, index);
   }
 }

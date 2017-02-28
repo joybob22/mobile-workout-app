@@ -16,6 +16,8 @@ import { WorkoutPage } from "../pages/workout/workout";
 import {OverviewPage} from "../pages/overview/overview";
 import {ProgressPage} from "../pages/progress/progress";
 
+import {DayDetailPage} from "../pages/day-detail/day-detail";
+
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {ProgressPage} from "../pages/progress/progress";
     RegisterPage,
     WorkoutPage,
     OverviewPage,
-    ProgressPage
+    ProgressPage,
+    DayDetailPage
+
 
   ],
   imports: [
@@ -52,7 +56,8 @@ import {ProgressPage} from "../pages/progress/progress";
     RegisterPage,
     WorkoutPage,
     OverviewPage,
-    ProgressPage
+    ProgressPage,
+    DayDetailPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService, UserDataService ]
 })

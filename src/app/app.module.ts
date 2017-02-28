@@ -17,6 +17,7 @@ import {OverviewPage} from "../pages/overview/overview";
 import {ProgressPage} from "../pages/progress/progress";
 
 import {DayDetailPage} from "../pages/day-detail/day-detail";
+import {SchedulePage} from "../pages/schedule/schedule";
 
 
 
@@ -35,7 +36,8 @@ import {DayDetailPage} from "../pages/day-detail/day-detail";
     WorkoutPage,
     OverviewPage,
     ProgressPage,
-    DayDetailPage
+    DayDetailPage,
+    SchedulePage
 
 
   ],
@@ -57,7 +59,8 @@ import {DayDetailPage} from "../pages/day-detail/day-detail";
     WorkoutPage,
     OverviewPage,
     ProgressPage,
-    DayDetailPage
+    DayDetailPage,
+    SchedulePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ExerciseService, UserDataService ]
 })

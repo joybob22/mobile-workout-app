@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { UserDataService } from '../../providers/user-data';
+import {SchedulePage} from "../schedule/schedule";
 
 
 @Component({
@@ -14,6 +15,8 @@ export class WorkoutPage{
   private workout: any;
   private selectedExercises: any;
   private arrayOfKeys;
+  errors: boolean = false;
+  errorMessage: string;
 
 
   constructor(private navCtrl: NavController, private exerciseService: ExerciseService, private navParams: NavParams, private userDataService: UserDataService){
@@ -28,7 +31,27 @@ export class WorkoutPage{
 
   scheduleWorkout(){
     //display calendar and save workout
+    if(this.formValidated()) {
+      this.navCtrl.push(SchedulePage,this.selectedExercises);
+      this.errors = false;
+    } else {
+      this.errorMessage = "Must enter a number for all workouts";
+      this.errors = true;
+    }
 
     console.log(this.selectedExercises);
+  }
+
+  formValidated(): boolean {
+    let good = 0;
+    for(let i = 0; i < this.selectedExercises.length; i++) {
+      if(this.selectedExercises[i].amount) {
+        good++;
+      }
+    }
+    if(good === this.selectedExercises.length) {
+      return true;
+    }
+    return false;
   }
 }

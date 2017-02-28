@@ -24,7 +24,7 @@ export class UserDataService {
 
   userWorkout = [
     {
-      date: "Monday",
+      date: "Sunday",
       workouts: [{
           name: "push-ups",
           amount: 50,
@@ -41,7 +41,7 @@ export class UserDataService {
 
     },
     {
-      date: "Tuesday",
+      date: "Monday",
       workouts: [{
         name: "push-ups",
         amount: 60,
@@ -51,7 +51,27 @@ export class UserDataService {
 
     },
     {
+      date: "Tuesday",
+      workouts: [{
+        name: "bicycle crunches",
+        amount: 120,
+        completed: false
+      }],
+      workoutCompleted: false
+
+    },
+    {
       date: "Wednesday",
+      workouts: [{
+        name: "push-ups",
+        amount: 60,
+        completed: false
+      }],
+      workoutCompleted: false
+
+    },
+    {
+      date: "Thursday",
       workouts: [{
         name: "bicycle crunches",
         amount: 120,
@@ -63,13 +83,23 @@ export class UserDataService {
     {
       date: "Friday",
       workouts: [{
-        name: "push-ups",
-        amount: 60,
+        name: "bicycle crunches",
+        amount: 120,
         completed: false
       }],
       workoutCompleted: false
 
     },
+    {
+      date: "Saturday",
+      workouts: [{
+        name: "bicycle crunches",
+        amount: 120,
+        completed: false
+      }],
+      workoutCompleted: false
+
+    }
   ];
 
   error = null;

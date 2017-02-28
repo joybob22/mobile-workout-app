@@ -12,6 +12,9 @@
       <ion-checkbox red item-right [(ngModel)]="day.isSelected"></ion-checkbox>
     </ion-item>
   </ion-list>
+  <div *ngIf="errors" style="color:white;font-weight: bold;text-align: center;">
+    {{errorMessage}}
+  </div>
   <button ion-button icon-left full round (click)="finish()">
     <ion-icon name="create"></ion-icon>
     Finish

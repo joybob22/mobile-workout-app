@@ -11,6 +11,8 @@ import {OverviewPage} from "../overview/overview";
 
 export class SchedulePage {
   exercises: any;
+  errors: boolean = false;
+  errorMessage: string;
   daysOfTheWeek: any = [
     {
       day: "Sunday",
@@ -47,12 +49,14 @@ export class SchedulePage {
   }
 
   finish(): void {
-    if(this.aDayIsSelected) {
+    if(this.aDayIsSelected()) {
       this.storeData();
       this.nav.push(OverviewPage);
       console.log(this.userService.userWorkout);
+      this.errors = false;
     } else {
-      //error message
+      this.errors = true;
+      this.errorMessage = "Please select a day"
     }
   }
 

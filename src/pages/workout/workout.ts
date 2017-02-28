@@ -28,6 +28,7 @@ export class WorkoutPage{
 
   scheduleWorkout(){
     //display calendar and save workout
+
     console.log(this.selectedExercises);
   }
 }

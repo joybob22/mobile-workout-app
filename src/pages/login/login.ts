@@ -7,7 +7,6 @@ import {OverviewPage} from "../overview/overview";
 
 @Component ({
   templateUrl: 'login.html'
-
 })
 
 export class LoginPage {

@@ -5,7 +5,6 @@
 </ion-header>
 
 <ion-content>
-
   <img src="../../assets/weights.jpg">
 </ion-content>
 <ion-content>
@@ -15,21 +14,13 @@
 
 <ion-content padding class="content" id="mainContentHome">
   <p>
-    This is your new favorite app! Here you will be able to get your workout life organized! Follow these simple steps
-     to get started:)
+    This is your new favorite app!
   </p>
-  <ul>
-    <li>Go to Login page</li>
-    <li>Login or Register</li>
-    <li>Choose a Workout</li>
-    <li>Assign that workout to the day you will complete it</li>
-    <li>Workout!</li>
-    <li>Checkoff that you have completed that workout!</li>
-    <li>See your progress!</li>
-  </ul>
-  <button full ion-button (click)="goToLoginPage()">Login</button>
-
-  <!--remove for production-->
-  <button full ion-button (click)="goToExerciseCategory()">Test Exercise Category Page</button>
-
+  <p>
+    Here you will be able to get your workout life organized
+  </p>
+  <p>
+    Let's get started!
+  </p>
+  <button id="loginButton" full bottom ion-button (click)="goToLoginPage()">Login</button>
 </ion-content>

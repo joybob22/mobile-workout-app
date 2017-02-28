@@ -1,3 +1,24 @@
-page-contact {
-
+#homeHeader {
+  text-align: center;
 }
+
+.content {
+  background-color: #00BCD4;
+}
+
+#contact {
+  top: 225px;
+  text-align: center;
+}
+
+#contact ul{
+  padding:0;
+}
+
+#contact li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 5px;
+}
+

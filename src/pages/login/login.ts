@@ -31,6 +31,7 @@ export class LoginPage {
               this.userService.loginUser(email, password).then((data) => {
                 //User sign in successful
                 console.log("Login Successful: " + data.uid);
+                this.userService.afterLogin(data);
                 this.nav.push(OverviewPage);
                 let toast = this.toastController.create({
                   duration: 3000,
@@ -87,6 +88,7 @@ export class LoginPage {
         let user: any = data.user;
         console.log(user);
         // ...
+      this.userService.afterFacebookLogin(data);
         this.nav.push(OverviewPage);
       },
       (errors) =>{

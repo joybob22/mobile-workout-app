@@ -29,12 +29,17 @@ export class ProgressPage {
     // get userWorkout from service and create array of days completed (sun-sat)
     for (let index of this.userWorkout) {
       for(let exercise of index.workouts){
-        if (exercise.completed = true){
+        if (exercise.completed == true){
           totalProgress++;
         }
       }
 
-      percentProgress = totalProgress / index.workouts.length;
+      if (totalProgress == 0) {
+        percentProgress = 0;
+      }
+      else {
+        percentProgress = totalProgress / index.workouts.length;
+      }
       totalProgress = 0;
 
       if (index.workoutCompleted == true) {
@@ -42,6 +47,9 @@ export class ProgressPage {
       }
       else if (percentProgress > 0) {
         this.graphData[dayofweek] = percentProgress;
+      }
+      else if (index.workoutCompleted == false){
+        this.graphData[dayofweek] = .01;
       }
       dayofweek++;
     }

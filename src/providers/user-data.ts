@@ -158,38 +158,31 @@ export class UserDataService {
           firebaseWorkout: [
             {
               date: "Sunday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             },
             {
               date: "Monday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             },
             {
               date: "Tuesday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             },
             {
               date: "Wednesday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             },
             {
               date: "Thursday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             },
             {
               date: "Friday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             },
             {
               date: "Saturday",
-              workoutCompleted: false,
-              workouts: [" "]
+              workoutCompleted: false
             }
           ]
         });

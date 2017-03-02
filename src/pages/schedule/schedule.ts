@@ -51,6 +51,7 @@ export class SchedulePage {
   finish(): void {
     if(this.aDayIsSelected()) {
       this.storeData();
+      this.userService.updateFirebase();
       this.nav.push(OverviewPage);
       console.log(this.userService.userWorkout);
       this.errors = false;

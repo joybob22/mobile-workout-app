@@ -27,6 +27,8 @@ export class UserDataService {
 
   error = null;
 
+  userId:any;
+
   constructor(){}
 
   /**
@@ -41,42 +43,36 @@ export class UserDataService {
   }
 
   afterRegister(data): any {
+    this.userId = data.uid;
     firebase.database().ref('users/' + data.uid).set({
       firebaseWorkout: [
         {
           date: "Sunday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         },
         {
           date: "Monday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         },
         {
           date: "Tuesday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         },
         {
           date: "Wednesday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         },
         {
           date: "Thursday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         },
         {
           date: "Friday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         },
         {
           date: "Saturday",
-          workoutCompleted: false,
-          workouts: [" "]
+          workoutCompleted: false
         }
       ]
     });
@@ -125,6 +121,7 @@ export class UserDataService {
   }
 
   afterLogin(data): any {
+    this.userId = data.uid;
     firebase.database().ref('/users/' + data.uid).once('value').then((snapshot) => {
       this.firebaseWorkout = snapshot.val().firebaseWorkout;
       this.takeOutSpaces(this.firebaseWorkout);
@@ -133,7 +130,7 @@ export class UserDataService {
 
   takeOutSpaces(workouts): void {
     for(var i = 0; i < workouts.length; i++) {
-      if(workouts[i].workouts[0] == " ") {
+      if(!(workouts[i].workouts)) {
         workouts[i].workouts = [];
       }
     }
@@ -150,6 +147,7 @@ export class UserDataService {
   }
 
   afterFacebookLogin(data): any {
+    this.userId = data.user.uid;
     firebase.database().ref('/users/' + data.user.uid).once('value').then((snapshot) => {
       let exists = (snapshot.val() !== null);
       if(exists) {
@@ -238,6 +236,12 @@ export class UserDataService {
       {
         console.log("Made it to error: " + errors);
       })
+  }
+
+  updateFirebase(): void {
+    firebase.database().ref('users/' + this.userId).set({
+      firebaseWorkout: this.userWorkout
+    });
   }
 }
 

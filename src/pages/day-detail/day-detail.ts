@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 
@@ -7,12 +7,18 @@ import {UserDataService} from "../../providers/user-data";
   templateUrl: 'day-detail.html'
 })
 export class DayDetailPage {
-  index: number;
+  dayIndex: number;
   userWorkout: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private userDataService: UserDataService) {
-    this.index = this.navParams.data;
     this.userWorkout = userDataService.userWorkout;
+  }
 
+  ngOnInit(){
+    this.dayIndex = this.navParams.data;
+  }
+
+  customTrackBy(index: number, obj: any): any {
+    return index;
   }
 
   ionViewDidLoad() {

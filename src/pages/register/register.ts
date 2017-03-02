@@ -34,6 +34,7 @@ export class RegisterPage {
                 this.userService.registerUser(email, password).then((data) => {
                   //success function
                   console.log("A user with this ID was added. " + data.uid);
+                  this.userService.afterRegister(data);
                   this.nav.push(ExerciseCategoryPage);
                   let toast = this.toastController.create({
                     duration: 3000,

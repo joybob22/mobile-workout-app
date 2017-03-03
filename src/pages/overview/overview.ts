@@ -34,4 +34,8 @@ export class OverviewPage {
   goToDayDetail(index): void {
     this.navCtrl.push(DayDetailPage, index);
   }
+
+  updateFirebase(): void {
+    this.userDataService.updateFirebase();
+  }
 }

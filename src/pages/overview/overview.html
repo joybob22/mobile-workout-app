@@ -15,7 +15,7 @@
   </div>
 
   <div *ngFor="let workout of userWorkout; let i=index " class="workoutDayBubble" >
-    <input type="checkbox" [(ngModel)]="workout.workoutCompleted"/> {{ workout.date }}
+    <input type="checkbox" (click)="updateFirebase()" [(ngModel)]="workout.workoutCompleted"/> {{ workout.date }}
     <div (click)="goToDayDetail(i)" *ngFor="let type of workout.workouts" class="workoutDetailBubble">
      {{type.amount}} {{type.name}}
     </div>

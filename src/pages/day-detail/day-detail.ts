@@ -37,11 +37,11 @@ dayIndex: number;
 
   }
 
-  // clearWorkout(index): void{
-  //   this.userDataService.userWorkout[index].workouts[index].name = "";
-  //   this.userDataService.userWorkout[index].workouts[index].amount = ;
-  //
-  // }
+  clearWorkout(index): void{
+    this.userDataService.userWorkout[this.dayIndex].workouts.splice(index, 1);
+    this.userDataService.updateFirebase();
+
+  }
 
 }
 

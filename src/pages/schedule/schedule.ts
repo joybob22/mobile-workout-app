@@ -12,9 +12,12 @@ var quotes = [
   "\"Eighty percent of success is showing up\" -Woody Allen",
   "\"The obstacle is the path\" -Zen Proverb",
   "\"If you have never failed you have never lived\" -Unknown",
-
+  "You can do it!",
+  "Hustle for that Muscle.",
+  "Train insane or remain the same.",
+  "*Insert cheesy quote here*"
 ];
-var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
 
 @Component({
   templateUrl: 'schedule.html'
@@ -62,12 +65,13 @@ export class SchedulePage {
 
   finish(): void {
     if(this.aDayIsSelected()) {
+      var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       this.storeData();
       this.nav.push(OverviewPage);
       console.log(this.userService.userWorkout);
       this.errors = false;
       let toast = this.toastController.create({
-        duration: 2000,
+        duration: 2500,
         message: randomQuote,
         position: "top"
       });

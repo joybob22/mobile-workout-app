@@ -17,6 +17,7 @@
   <div class="workoutDayBubble">
 
     <div *ngFor="let workout of userWorkout[index].workouts" >
+      <div id="clearWorkoutDiv"> <button id="clearWorkoutButton" (click)="clearWorkout(i)"> X </button></div>
       <input type="checkbox" [(ngModel)]="workout.completed"/> {{ workout.amount }} {{ workout.name }}
 
     </div>

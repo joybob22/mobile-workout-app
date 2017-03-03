@@ -1,5 +1,17 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import {Subject, Observable, BehaviorSubject} from "rxjs";
+import {OverviewPage} from "../pages/overview/overview";
+
+export interface workout {
+  date: string,
+  workouts: workouts[]
+}
+export interface workouts{
+  name: string,
+  amount: number,
+  completed: boolean
+}
 
 @Injectable()
 
@@ -12,6 +24,8 @@ import * as firebase from 'firebase';
  * Ignore the firebase errors, they are resolved when the typescript is compiled to javascript
  */
 
+
+
 export class UserDataService {
   //firebase initialization
   app = firebase.initializeApp({
@@ -21,6 +35,13 @@ export class UserDataService {
     storageBucket: "workoutapp-ddc70.appspot.com",
     messagingSenderId: "384184019598"
   });
+
+  _userWorkout = <BehaviorSubject< workout[] >> new BehaviorSubject([]);
+  workoutStore: {
+    workout: workout[];
+  };
+
+    // Observable.of(this.userWorkout);
 
   userWorkout = [
     {
@@ -104,6 +125,10 @@ export class UserDataService {
 
   error = null;
 
+  clearVar = new Subject<any>();
+  clearVar$ = this.clearVar.asObservable();
+  updateClear: any;
+
   constructor(){}
 
   /**
@@ -127,5 +152,19 @@ export class UserDataService {
       'display': 'popup'
     });
     return firebase.auth().signInWithPopup(provider);
+  }
+
+  get(): any {
+    this.workoutStore = {workout: []};
+    this.workoutStore.workout = this.userWorkout;
+    this._userWorkout.next(Object.assign({}, this.workoutStore).workout);
+    return this._userWorkout.asObservable();
+  }
+
+  clearAllWorkouts(index): void {
+    this.userWorkout[index].workouts = [];
+    this._userWorkout.next(Object.assign({}, this.workoutStore).workout);
+
+    //return this.clearVar.next(this.updateClear);
   }
 }

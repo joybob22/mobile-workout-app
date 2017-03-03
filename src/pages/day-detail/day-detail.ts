@@ -35,5 +35,11 @@ export class DayDetailPage {
 
   }
 
+  // clearWorkout(index): void{
+  //   this.userDataService.userWorkout[index].workouts[index].name = "";
+  //   this.userDataService.userWorkout[index].workouts[index].amount = ;
+  //
+  // }
+
 }
 

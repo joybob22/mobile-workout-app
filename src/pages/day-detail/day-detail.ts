@@ -37,5 +37,15 @@ dayIndex: number;
 
   }
 
+  clearWorkout(index): void{
+    this.userDataService.userWorkout[this.dayIndex].workouts.splice(index, 1);
+    this.userDataService.updateFirebase();
+
+  }
+
+  updateFirebase(): void {
+    this.userDataService.updateFirebase();
+  }
+
 }
 

@@ -17,7 +17,10 @@
   <div class="workoutDayBubble">
 
     <div *ngFor="let workout of userWorkout[dayIndex].workouts; let parentIndex = index" >
-      <input type="checkbox" [(ngModel)]="userWorkout[dayIndex].workouts[parentIndex].completed"/> {{ workout.amount }} {{ workout.name }}
+
+      <div id="clearWorkoutDiv"> <button id="clearWorkoutButton" (click)="clearWorkout(parentIndex)"> X </button></div>
+
+      <ion-checkbox (click)="updateFirebase()" [(ngModel)]="userWorkout[dayIndex].workouts[parentIndex].completed"></ion-checkbox> {{ workout.amount }} {{ workout.name }}
     </div>
   </div>
 

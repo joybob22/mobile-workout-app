@@ -19,6 +19,7 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
+    <div id="swipeNote"> ** Swipe Right to View Exercise Details </div>
   </ion-list>
 
 </ion-content>
@@ -28,6 +29,9 @@
   <button ion-button icon-left full round (tap)="editWorkout()">
     <ion-icon name="pencil"></ion-icon>
     Define Workout
+  </button>
+  <button ion-button icon-left full round (tap)="backToOverview()">
+    Back to Overview
   </button>
 
 </ion-footer>

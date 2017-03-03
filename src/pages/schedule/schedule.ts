@@ -71,6 +71,11 @@ export class SchedulePage {
     return false;
   }
 
+
+  backToOverview(): void {
+    this.nav.push(OverviewPage);
+  }
+
   storeData(): void {
     for(let i = 0; i < this.exercises.length; i++) {
       this.exercises[i].completed = false;

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { UserDataService } from '../../providers/user-data';
 import {SchedulePage} from "../schedule/schedule";
+import {OverviewPage} from "../overview/overview";
 
 
 @Component({
@@ -40,6 +41,10 @@ export class WorkoutPage{
     }
 
     console.log(this.selectedExercises);
+  }
+
+  backToOverview(): void {
+    this.navCtrl.push(OverviewPage);
   }
 
   formValidated(): boolean {

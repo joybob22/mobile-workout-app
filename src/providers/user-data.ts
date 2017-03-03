@@ -1,5 +1,17 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import {Subject, Observable, BehaviorSubject} from "rxjs";
+import {OverviewPage} from "../pages/overview/overview";
+
+export interface workout {
+  date: string,
+  workouts: workouts[]
+}
+export interface workouts{
+  name: string,
+  amount: number,
+  completed: boolean
+}
 
 @Injectable()
 
@@ -22,12 +34,21 @@ export class UserDataService {
     messagingSenderId: "384184019598"
   });
 
+  _userWorkout = <BehaviorSubject< workout[] >> new BehaviorSubject([]);
+  workoutStore: {
+    workout: workout[];
+  };
+
   userWorkout:any;
   firebaseWorkout: any;
 
   error = null;
 
   userId:any;
+
+  clearVar = new Subject<any>();
+  clearVar$ = this.clearVar.asObservable();
+  updateClear: any;
 
   constructor(){}
 
@@ -76,6 +97,8 @@ export class UserDataService {
         }
       ]
     });
+
+
 
     this.userWorkout = [
       {
@@ -146,6 +169,20 @@ export class UserDataService {
       'display': 'popup'
     });
     return firebase.auth().signInWithPopup(provider);
+  }
+
+  get(): any {
+    this.workoutStore = {workout: []};
+    this.workoutStore.workout = this.userWorkout;
+    this._userWorkout.next(Object.assign({}, this.workoutStore).workout);
+    return this._userWorkout.asObservable();
+  }
+
+  clearAllWorkouts(index): void {
+    this.userWorkout[index].workouts = [];
+    this._userWorkout.next(Object.assign({}, this.workoutStore).workout);
+
+    //return this.clearVar.next(this.updateClear);
   }
 
   afterFacebookLogin(data): any {
@@ -234,6 +271,7 @@ export class UserDataService {
   }
 
   updateFirebase(): void {
+    console.log(this.userWorkout);
     firebase.database().ref('users/' + this.userId).set({
       firebaseWorkout: this.userWorkout
     });

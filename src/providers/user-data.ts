@@ -46,6 +46,10 @@ export class UserDataService {
 
   userId:any;
 
+  clearVar = new Subject<any>();
+  clearVar$ = this.clearVar.asObservable();
+  updateClear: any;
+
   constructor(){}
 
   /**
@@ -94,11 +98,7 @@ export class UserDataService {
       ]
     });
 
-    error = null;
 
-    clearVar = new Subject<any>();
-    clearVar$ = this.clearVar.asObservable();
-    updateClear: any;
 
     this.userWorkout = [
       {

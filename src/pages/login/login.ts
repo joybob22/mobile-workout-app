@@ -31,8 +31,12 @@ export class LoginPage {
               this.userService.loginUser(email, password).then((data) => {
                 //User sign in successful
                 console.log("Login Successful: " + data.uid);
-                this.userService.afterLogin(data);
-                this.nav.push(OverviewPage);
+
+                this.userService.afterLogin(data).then(() =>{
+                  this.nav.push(OverviewPage);
+                });
+
+
                 let toast = this.toastController.create({
                   duration: 3000,
                   message: "Login Successfull!",

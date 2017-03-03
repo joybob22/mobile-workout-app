@@ -122,14 +122,16 @@ export class UserDataService {
 
   afterLogin(data): any {
     this.userId = data.uid;
-    firebase.database().ref('/users/' + data.uid).once('value').then((snapshot) => {
+    return firebase.database().ref('/users/' + data.uid).once('value', snapshot => {
       this.firebaseWorkout = snapshot.val().firebaseWorkout;
       this.takeOutSpaces(this.firebaseWorkout);
-    });
+    }, error => console.log("afterlogin" , error) );
   }
 
+
+
   takeOutSpaces(workouts): void {
-    for(var i = 0; i < workouts.length; i++) {
+    for(var i = 0; workouts && i < workouts.length; i++) {
       if(!(workouts[i].workouts)) {
         workouts[i].workouts = [];
       }

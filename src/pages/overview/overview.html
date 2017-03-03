@@ -15,8 +15,9 @@
   </div>
 
   <div *ngFor="let workout of userWorkout | async; let i=index " class="workoutDayBubble" >
-    <input type="checkbox" (click)="updateFirebase()" [(ngModel)]="workout.workoutCompleted"/> {{ workout.date }}
-    <div id="clearAllDiv"><button id="clearAllButton" (click)="clearAllWorkouts(i)">Clear Day</button></div>
+    <ion-checkbox red [(ngModel)]="workout.workoutCompleted" (click)="updateFirebase()"></ion-checkbox>
+    <span class="date">{{ workout.date }}</span>
+    <div id="clearAllDiv"><button id="clearAllButton" (click)="clearAllWorkouts(i)">Clear All</button></div>
     <div (click)="goToDayDetail(i)" *ngFor="let type of workout.workouts" class="workoutDetailBubble">
      {{type.amount}} {{type.name}}
     </div>

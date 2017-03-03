@@ -269,6 +269,7 @@ export class UserDataService {
   }
 
   updateFirebase(): void {
+    console.log(this.userWorkout);
     firebase.database().ref('users/' + this.userId).set({
       firebaseWorkout: this.userWorkout
     });

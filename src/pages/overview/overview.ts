@@ -53,6 +53,7 @@ export class OverviewPage {
 
 
   updateFirebase(): void {
+    console.log(this.userDataService.userWorkout);
     this.userDataService.updateFirebase();
   }
 }

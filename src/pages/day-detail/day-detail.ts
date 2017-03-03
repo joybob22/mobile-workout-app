@@ -43,5 +43,9 @@ dayIndex: number;
 
   }
 
+  updateFirebase(): void {
+    this.userDataService.updateFirebase();
+  }
+
 }
 

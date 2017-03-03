@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { ExerciseItemPage } from "../exercises/exercises";
+import {OverviewPage} from "../overview/overview";
 
 @Component({
   selector: 'page-exerciseCategory',
@@ -34,9 +35,14 @@ export class ExerciseCategoryPage {
 
   }
 
+  backToOverview(): void {
+    this.navCtrl.push(OverviewPage);
+  }
+
   getWorkoutId(name): number {
     return this.workoutMap[name];
   }
+
 }
 
 

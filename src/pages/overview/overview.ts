@@ -45,6 +45,7 @@ export class OverviewPage {
 
   clearAllWorkouts(index): void {
     this.userDataService.clearAllWorkouts(index);
+    this.userDataService.updateFirebase();
     // this.userDataService.get().subscribe(data => {
     //   this.userWorkout = data;
     //  });

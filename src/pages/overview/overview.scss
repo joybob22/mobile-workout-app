@@ -17,9 +17,17 @@ page-overview {
   font-weight: normal;
 }
 
+.overviewButtons{
+  display: flex;
+  justify-content: space-around;
+
+}
+
 #clearAllDiv{
   float: right;
 }
+
+
 
 #clearAllButton{
   background: #0097A7;

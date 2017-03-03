@@ -2,6 +2,8 @@ import {ViewController, NavParams} from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import {Component} from "@angular/core";
+import {OverviewPage} from "../overview/overview";
+import {ExerciseItemPage} from "../exercises/exercises";
 
 @Component({
   selector: 'page-exerciseDetail',

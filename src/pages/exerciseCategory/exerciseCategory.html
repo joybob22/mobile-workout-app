@@ -10,4 +10,8 @@
       <h2 (click)="showExercises(getWorkoutId(category.name), index)">{{  category.name }}</h2>
     </ion-item>
   </ion-list>
+  <button ion-button icon-left full (tap)="backToOverview()">
+    Back to Overview
+  </button>
+
 </ion-content>

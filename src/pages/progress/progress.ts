@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 import { Chart } from 'chart.js';
+import {OverviewPage} from "../overview/overview";
 
 
 @Component({
@@ -88,6 +89,10 @@ export class ProgressPage {
 
     });
     Chart.defaults.global.defaultColor = 'green';
+  }
+
+  backToOverview(): void {
+    this.navCtrl.push(OverviewPage);
   }
 }
 

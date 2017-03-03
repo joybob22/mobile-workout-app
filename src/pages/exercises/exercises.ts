@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ExerciseService } from '../../providers/exercise-service';
 import { ExerciseDetailModal } from "../exerciseDetail/exerciseDetail";
 import { WorkoutPage } from "../workout/workout";
+import {OverviewPage} from "../overview/overview";
 
 @Component({
   selector: 'page-exerciseItem',
@@ -36,6 +37,10 @@ export class ExerciseItemPage {
     //display workout and choose reps and save workout
     this.updateSelectedExercises();
     this.navCtrl.push(WorkoutPage, {selectedExercises: this.selectedExercises});
+  }
+
+  backToOverview(): void {
+    this.navCtrl.push(OverviewPage);
   }
 
   updateSelectedExercises(): any {

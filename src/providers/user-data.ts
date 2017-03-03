@@ -24,8 +24,6 @@ export interface workouts{
  * Ignore the firebase errors, they are resolved when the typescript is compiled to javascript
  */
 
-
-
 export class UserDataService {
   //firebase initialization
   app = firebase.initializeApp({
@@ -41,93 +39,12 @@ export class UserDataService {
     workout: workout[];
   };
 
-    // Observable.of(this.userWorkout);
-
-  userWorkout = [
-    {
-      date: "Sunday",
-      workouts: [{
-          name: "push-ups",
-          amount: 50,
-          completed: false
-        },
-        {
-          name: "sit-ups",
-          amount: 30,
-          completed: false
-        }
-      ],
-
-      workoutCompleted: false
-
-    },
-    {
-      date: "Monday",
-      workouts: [{
-        name: "push-ups",
-        amount: 60,
-        completed: false
-      }],
-      workoutCompleted: false
-
-    },
-    {
-      date: "Tuesday",
-      workouts: [{
-        name: "bicycle crunches",
-        amount: 120,
-        completed: false
-      }],
-      workoutCompleted: false
-
-    },
-    {
-      date: "Wednesday",
-      workouts: [{
-        name: "push-ups",
-        amount: 60,
-        completed: false
-      }],
-      workoutCompleted: false
-
-    },
-    {
-      date: "Thursday",
-      workouts: [{
-        name: "bicycle crunches",
-        amount: 120,
-        completed: false
-      }],
-      workoutCompleted: false
-
-    },
-    {
-      date: "Friday",
-      workouts: [{
-        name: "bicycle crunches",
-        amount: 120,
-        completed: false
-      }],
-      workoutCompleted: false
-
-    },
-    {
-      date: "Saturday",
-      workouts: [{
-        name: "bicycle crunches",
-        amount: 120,
-        completed: false
-      }],
-      workoutCompleted: false
-
-    }
-  ];
+  userWorkout:any;
+  firebaseWorkout: any;
 
   error = null;
 
-  clearVar = new Subject<any>();
-  clearVar$ = this.clearVar.asObservable();
-  updateClear: any;
+  userId:any;
 
   constructor(){}
 
@@ -142,9 +59,107 @@ export class UserDataService {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
+  afterRegister(data): any {
+    this.userId = data.uid;
+    firebase.database().ref('users/' + data.uid).set({
+      firebaseWorkout: [
+        {
+          date: "Sunday",
+          workoutCompleted: false
+        },
+        {
+          date: "Monday",
+          workoutCompleted: false
+        },
+        {
+          date: "Tuesday",
+          workoutCompleted: false
+        },
+        {
+          date: "Wednesday",
+          workoutCompleted: false
+        },
+        {
+          date: "Thursday",
+          workoutCompleted: false
+        },
+        {
+          date: "Friday",
+          workoutCompleted: false
+        },
+        {
+          date: "Saturday",
+          workoutCompleted: false
+        }
+      ]
+    });
+
+    error = null;
+
+    clearVar = new Subject<any>();
+    clearVar$ = this.clearVar.asObservable();
+    updateClear: any;
+
+    this.userWorkout = [
+      {
+        date: "Sunday",
+        workoutCompleted: false,
+        workouts: []
+      },
+      {
+        date: "Monday",
+        workoutCompleted: false,
+        workouts: []
+      },
+      {
+        date: "Tuesday",
+        workoutCompleted: false,
+        workouts: []
+      },
+      {
+        date: "Wednesday",
+        workoutCompleted: false,
+        workouts: []
+      },
+      {
+        date: "Thursday",
+        workoutCompleted: false,
+        workouts: []
+      },
+      {
+        date: "Friday",
+        workoutCompleted: false,
+        workouts: []
+      },
+      {
+        date: "Saturday",
+        workoutCompleted: false,
+        workouts: []
+      }
+    ];
+  }
+
   loginUser(email, password): any {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
+
+  afterLogin(data): any {
+    this.userId = data.uid;
+    firebase.database().ref('/users/' + data.uid).once('value').then((snapshot) => {
+      this.firebaseWorkout = snapshot.val().firebaseWorkout;
+      this.takeOutSpaces(this.firebaseWorkout);
+    });
+  }
+
+  takeOutSpaces(workouts): void {
+    for(var i = 0; i < workouts.length; i++) {
+      if(!(workouts[i].workouts)) {
+        workouts[i].workouts = [];
+      }
+    }
+    this.userWorkout = workouts;
+  };
+
   faceBookLogin(): any{
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('user_birthday');
@@ -167,4 +182,96 @@ export class UserDataService {
 
     //return this.clearVar.next(this.updateClear);
   }
+
+  afterFacebookLogin(data): any {
+    this.userId = data.user.uid;
+    firebase.database().ref('/users/' + data.user.uid).once('value').then((snapshot) => {
+      let exists = (snapshot.val() !== null);
+      if(exists) {
+        this.firebaseWorkout = snapshot.val().firebaseWorkout;
+        this.takeOutSpaces(this.firebaseWorkout);
+      } else {
+        firebase.database().ref('users/' + data.user.uid).set({
+          firebaseWorkout: [
+            {
+              date: "Sunday",
+              workoutCompleted: false
+            },
+            {
+              date: "Monday",
+              workoutCompleted: false
+            },
+            {
+              date: "Tuesday",
+              workoutCompleted: false
+            },
+            {
+              date: "Wednesday",
+              workoutCompleted: false
+            },
+            {
+              date: "Thursday",
+              workoutCompleted: false
+            },
+            {
+              date: "Friday",
+              workoutCompleted: false
+            },
+            {
+              date: "Saturday",
+              workoutCompleted: false
+            }
+          ]
+        });
+
+        this.userWorkout = [
+          {
+            date: "Sunday",
+            workoutCompleted: false,
+            workouts: []
+          },
+          {
+            date: "Monday",
+            workoutCompleted: false,
+            workouts: []
+          },
+          {
+            date: "Tuesday",
+            workoutCompleted: false,
+            workouts: []
+          },
+          {
+            date: "Wednesday",
+            workoutCompleted: false,
+            workouts: []
+          },
+          {
+            date: "Thursday",
+            workoutCompleted: false,
+            workouts: []
+          },
+          {
+            date: "Friday",
+            workoutCompleted: false,
+            workouts: []
+          },
+          {
+            date: "Saturday",
+            workoutCompleted: false,
+            workouts: []
+          }
+        ];
+      }
+    }, (errors) =>
+      {
+        console.log("Made it to error: " + errors);
+      })
+  }
+
+  updateFirebase(): void {
+    firebase.database().ref('users/' + this.userId).set({
+      firebaseWorkout: this.userWorkout
+    });
+  }
 }
+

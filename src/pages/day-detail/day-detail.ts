@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {UserDataService} from "../../providers/user-data";
 
@@ -7,12 +7,14 @@ import {UserDataService} from "../../providers/user-data";
   templateUrl: 'day-detail.html'
 })
 export class DayDetailPage {
-  index: number;
+dayIndex: number;
   userWorkout: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private userDataService: UserDataService) {
-    this.index = this.navParams.data;
     this.userWorkout = userDataService.userWorkout;
+  }
 
+  ngOnInit(){
+    this.dayIndex = this.navParams.data;
   }
 
   ionViewDidLoad() {
@@ -20,15 +22,15 @@ export class DayDetailPage {
   }
 
   allWorkoutsComplete(): void{
-    let allWorkouts = this.userWorkout[this.index].workouts.length;
+    let allWorkouts = this.userWorkout[this.dayIndex].workouts.length;
     let finishedWorkOut = 0;
     for (let c = 0; c < allWorkouts; c++){
-      if (this.userWorkout[this.index].workouts.completed === true){
+      if (this.userWorkout[this.dayIndex].workouts.completed === true){
         finishedWorkOut ++;
       }
     }
     if (allWorkouts === finishedWorkOut){
-        this.userWorkout[this.index].workoutCompleted = true;
+        this.userWorkout[this.dayIndex].workoutCompleted = true;
     }
 
 

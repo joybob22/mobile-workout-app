@@ -16,10 +16,9 @@
 <ion-content padding>
   <div class="workoutDayBubble">
 
-    <div *ngFor="let workout of userWorkout[index].workouts" >
+    <div *ngFor="let workout of userWorkout[dayIndex].workouts; let parentIndex = index" >
       <div id="clearWorkoutDiv"> <button id="clearWorkoutButton" (click)="clearWorkout(i)"> X </button></div>
-      <input type="checkbox" [(ngModel)]="workout.completed"/> {{ workout.amount }} {{ workout.name }}
-
+      <input type="checkbox" [(ngModel)]="userWorkout[dayIndex].workouts[parentIndex].completed"/> {{ workout.amount }} {{ workout.name }}
     </div>
   </div>
 

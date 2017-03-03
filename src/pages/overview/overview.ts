@@ -50,4 +50,8 @@ export class OverviewPage {
     //  });
   }
 
+
+  updateFirebase(): void {
+    this.userDataService.updateFirebase();
+  }
 }

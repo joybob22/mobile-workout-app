@@ -20,7 +20,7 @@
 
       <div id="clearWorkoutDiv"> <button id="clearWorkoutButton" (click)="clearWorkout(parentIndex)"> X </button></div>
 
-      <ion-checkbox (click)="updateFirebase()" [(ngModel)]="userWorkout[dayIndex].workouts[parentIndex].completed"></ion-checkbox> {{ workout.amount }} {{ workout.name }}
+      <ion-checkbox (click)="updateFirebase()" [(ngModel)]="workout.completed"></ion-checkbox> {{ workout.amount }} {{ workout.name }}
     </div>
   </div>
 

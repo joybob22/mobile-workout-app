@@ -47,5 +47,9 @@ dayIndex: number;
     this.userDataService.updateFirebase();
   }
 
+  checkExercise(workout): void{
+    console.log(workout.completed);
+  }
+
 }
 
